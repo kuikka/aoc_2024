@@ -1,7 +1,10 @@
 cc_library(
     name = "parser",
     hdrs = [ "src/parser.hpp" ],
-    includes = [ "src" ]
+    includes = [ "src" ],
+    deps = [ 
+        "//libs/third-party/fmt-11:fmt-11",
+    ],
 )
 
 cc_binary(
@@ -22,4 +25,15 @@ cc_test(
         "@googletest//:gtest_main",
     ],
     data = [ "inputs/day3.txt" ]
+)
+
+cc_test(
+    name = "test_day4",
+    srcs = [ "tests/test_day4.cpp"],
+    deps = [
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+        "//libs/third-party/fmt-11:fmt-11",
+    ],
+    data = [ "inputs/day4.txt" ]
 )

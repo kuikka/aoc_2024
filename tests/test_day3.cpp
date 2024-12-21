@@ -27,6 +27,13 @@ namespace {
     }
 };
 
+TEST(Day3Test, test_mulmul)
+{
+    int sum = sum_input("mulmul(10,10)");
+    EXPECT_EQ(sum, 100);
+}
+
+
 TEST(Day3Test, test_input1)
 {
     int sum = sum_input(test_input);
@@ -42,5 +49,15 @@ TEST(Day3Test, test_input2)
     buffer << t.rdbuf();
 
     int sum = sum_input(buffer.str());
-    EXPECT_EQ(sum, 174336360);
+    // EXPECT_EQ(sum, 174336360);
+    EXPECT_EQ(sum, 88802350);
+    
+}
+
+TEST(Day3Test, test_do_dont_1)
+{
+    std::string input = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
+    int sum = sum_input(input);
+    EXPECT_EQ(sum, 48);
+
 }
